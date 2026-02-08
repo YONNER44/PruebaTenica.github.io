@@ -1,0 +1,188 @@
+.tableContainer {
+  overflow-x: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-out;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  transition: all 0.3s ease-out;
+}
+
+.table thead {
+  background-color: #f9fafb;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 500;
+  color: #6b7280;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.row {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.row:hover {
+  background-color: #f9fafb;
+}
+
+.table td {
+  padding: 1rem;
+}
+
+.projectName {
+  font-weight: 500;
+  color: #111827;
+  margin-bottom: 0.25rem;
+}
+
+.projectDates {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.planBig {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.planSmall {
+  background-color: #e0e7ff;
+  color: #3730a3;
+}
+
+.planMedium {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.statusActive {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.statusInactive {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.statusSuspended {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.statusPending {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+.team {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #f59e0b;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.625rem;
+  font-weight: 600;
+}
+
+.avatarMore {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-left: 0.25rem;
+}
+
+.items {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.itemCount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.itemNumber {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.itemLabel {
+  font-size: 0.625rem;
+  color: #6b7280;
+  text-transform: uppercase;
+}
+
+.noResults {
+  text-align: center;
+  padding: 4rem 2rem !important;
+}
+
+.noResultsContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.noResultsIcon {
+  width: 4rem;
+  height: 4rem;
+  color: #d1d5db;
+  margin-bottom: 0.5rem;
+}
+
+.noResultsTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0;
+}
+
+.noResultsText {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0;
+  max-width: 28rem;
+}
+
+@media (min-width: 1024px) {
+  .tableContainer {
+    min-width: 600px;
+  }
+}

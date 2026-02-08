@@ -1,0 +1,286 @@
+.main {
+  min-height: 100vh;
+  background-color: #f3f4f6;
+}
+
+.container {
+  max-width: 100%;
+  padding: 0;
+  position: relative;
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: white;
+  border-bottom: 1px solid #e5e7eb;
+  gap: 2rem;
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #111827;
+  margin: 0;
+}
+
+.count {
+  font-size: 0.875rem;
+  background: #e5e7eb;
+  padding: 0.25rem 0.5rem;
+  border-radius: 10px;
+  color: black;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.createBtn {
+  padding: 0.5rem 1.25rem;
+  background-color: #fbbf24;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.createBtn:hover {
+  background-color: #f59e0b;
+}
+
+.floatingSidebarBtn {
+  position: fixed;
+  top: 155px;
+  right: 2rem;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid #d1d5db;
+  background-color: white;
+  border-radius: 4px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.floatingSidebarBtn:hover {
+  border-color: #9ca3af;
+  background-color: #f9fafb;
+}
+
+.floatingSidebarBtnHidden {
+  opacity: 0;
+  transform: translateX(60px);
+  pointer-events: none;
+}
+
+.content {
+  padding: 1.5rem 2rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: stretch;
+  transition: gap 0.3s ease-in-out;
+}
+
+.content.withSidebar {
+  gap: 1.5rem;
+}
+
+.mainContent {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  transition: flex 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+
+.mapSection {
+  width: 100%;
+  transition: all 0.4s ease-in-out;
+  overflow: hidden;
+}
+
+.mapVisible {
+  max-height: 600px;
+  opacity: 1;
+  margin-bottom: 1.5rem;
+}
+
+.mapHidden {
+  max-height: 0;
+  opacity: 0;
+  margin-bottom: 0;
+}
+
+.listSection {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarSection {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease-in-out;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+.sidebarVisible {
+  width: 450px;
+  min-width: 450px;
+  padding: 1.5rem;
+  transform: translateX(0);
+  opacity: 1;
+  margin-left: 0;
+}
+
+.sidebarHidden {
+  width: 0;
+  min-width: 0;
+  padding: 0;
+  border-width: 0;
+  margin-left: -1.5rem;
+  transform: translateX(100%);
+  opacity: 0;
+  overflow: hidden;
+}
+
+/* Responsive Design */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 1024px) {
+  .topBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .rightSection {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .content.withSidebar {
+    flex-direction: column;
+  }
+
+  .sidebarVisible {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .sidebarHidden {
+    transform: translateY(20px);
+    display: none;
+  }
+
+  .floatingSidebarBtn {
+    top: 200px;
+  }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+  .topBar {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+
+  .rightSection {
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .createBtn {
+    width: 100%;
+    order: 3;
+  }
+
+  .floatingSidebarBtn {
+    top: auto;
+    bottom: 20px;
+    right: 1rem;
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .sidebarVisible {
+    position: relative;
+    margin-top: 1rem;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  .leftSection {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .title {
+    font-size: 1.125rem;
+  }
+
+  .count {
+    font-size: 0.75rem;
+  }
+
+  .topBar {
+    padding: 0.75rem;
+  }
+
+  .content {
+    padding: 0.75rem;
+  }
+
+  .floatingSidebarBtn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.125rem;
+  }
+}
