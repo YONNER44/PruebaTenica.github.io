@@ -14,9 +14,15 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-      - run: npm ci  # Usa npm ci en vez de npm install para builds más consistentes
-      - run: npm run build
+      - run: npm ci 
+      
+      - name: build # Usa npm ci en vez de npm install para builds más consistentes
+        run: npm run build
+        env:
+          NEXT_PUBLIC_MAPBOX_TOKEN: ${{ secrets.NEXT_PUBLIC_MAPBOX_TOKEN }}
+
       - run: touch ./out/.nojekyll
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
