@@ -11,6 +11,7 @@ interface AuthStore {
   isAuthenticated: boolean;
   justLoggedOut: boolean;
   hasHydrated: boolean;
+  setHasHydrated: () => void;
   login: (email: string, password: string) => boolean;
   logout: () => void;
   clearLogoutFlag: () => void;
@@ -30,6 +31,8 @@ export const useAuthStore = create<AuthStore>()(
       isAuthenticated: false,
       justLoggedOut: false,
       hasHydrated: false,
+
+       setHasHydrated: () => set({ hasHydrated: true }),
 
       login: (email, password) => {
         if (email === MOCK_USER.email && password === MOCK_USER.password) {
