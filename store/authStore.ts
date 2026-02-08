@@ -53,9 +53,13 @@ export const useAuthStore = create<AuthStore>()(
     }),
     {
       name: 'auth-storage',
-      onRehydrateStorage: () => () => {
-        useAuthStore.setState({ hasHydrated: true });
-      }
+
+
+      merge: (persistedState, currentState) => ({
+        ...persistedState as AuthStore,
+        ...currentState,
+        hasHydrated: true
+      })
     }
   )
 );
