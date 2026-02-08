@@ -15,6 +15,7 @@ jobs:
           node-version: 20  # Cambia de 18 a 20
       - run: npm install
       - run: npm run build
+      - run: touch ./out/.nojekyll
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
