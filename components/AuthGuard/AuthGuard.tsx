@@ -5,31 +5,33 @@ import { useAuthStore } from '@/store/authStore';
 
 export default function AuthGuard({ children }: { children: React.ReactNode }) {
   const router = useRouter();
-  const { isAuthenticated, hasHydrated } = useAuthStore();
+  const { isAuthenticated, hasHydrated, setHasHydrated } = useAuthStore();
 
   useEffect(() => {
-    if ( hasHydrated && !isAuthenticated) {
-      router.push('/login');
+    setHasHydrated();
+  }, [setHasHydrated]);
+
+  useEffect(() => {
+    if (hasHydrated && !isAuthenticated) {
+      router.replace('/login');
     }
   }, [hasHydrated, isAuthenticated, router]);
 
   if (!hasHydrated) {
     return (
-      <div style={{ 
-        display: 'flex', 
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        minHeight: '100vh',
-        fontSize: '1.2rem',
-        color: '#6b7280'
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '100vh'
       }}>
         Verificando autenticación...
       </div>
     );
   }
 
-  if (!isAuthenticated) { 
-    return null; // O un componente de carga
+  if (!isAuthenticated) {
+    return null;
   }
 
   return <>{children}</>;

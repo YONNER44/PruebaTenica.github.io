@@ -53,13 +53,6 @@ export const useAuthStore = create<AuthStore>()(
     }),
     {
       name: 'auth-storage',
-
-
-      merge: (persistedState, currentState) => ({
-        ...persistedState as AuthStore,
-        ...currentState,
-        hasHydrated: true
-      })
     }
   )
 );
