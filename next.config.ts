@@ -1,11 +1,12 @@
 import type { NextConfig } from "next";
 
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig: NextConfig = {
-   output: "export",
-   basePath: "/PruebaTecnica.github.io",
-   assetPrefix: "/PruebaTecnica.github.io",
+  output: "export",
+  basePath: isProd ? "/PruebaTecnica.github.io" : "",
+  assetPrefix: isProd ? "/PruebaTecnica.github.io" : "",
   trailingSlash: true,
-  /* ...Otras opciones de configuración */
 };
 
 export default nextConfig;
