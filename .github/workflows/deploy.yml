@@ -12,8 +12,9 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 20  # Cambia de 18 a 20
-      - run: npm install
+          node-version: 20
+          cache: 'npm'
+      - run: npm ci  # Usa npm ci en vez de npm install para builds más consistentes
       - run: npm run build
       - run: touch ./out/.nojekyll
       - name: Deploy to GitHub Pages
